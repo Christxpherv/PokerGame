@@ -37,4 +37,13 @@ class Hand
     values.each {|card| card_freqs[card] += 1}
     card_freqs
   end
+
+  # return the highest frequency card value
+  def highest_frequency_value
+    # create a hash of the frequency of each card
+    card_freqs = get_frequency
+
+    # sort the hash by the frequency of each card and return the highest frequency card value
+    card_freqs.sort_by { |v| card_freqs[card] }.last.get_integer
+  end
 end
