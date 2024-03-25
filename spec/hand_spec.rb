@@ -157,4 +157,16 @@ describe Hand do
       expect(hand.beats?(hand2)).to be_truthy
     end
   end
+  # create a method that will replace the cards in the hand
+  describe "#replace_cards" do
+    it "takes cards from hand and replaces with new cards from deck" do
+      # create a mock deck
+      deck = double("deck")
+      hand.cards = pair
+
+      # create old cards and new cards
+      old_cards = [hand.cards[2], hand.cards[3], hand.cards[4]]
+      new_cards = [two_of_d, two_of_s, five_of_s]
+    end
+  end
 end
