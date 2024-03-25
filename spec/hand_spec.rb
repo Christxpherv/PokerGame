@@ -38,7 +38,17 @@ describe Hand do
   # add a method that deals a hand to the player
   describe "#deal_hand" do
     it "takes 5 cards from deck" do
-      # add code here
+      # create a mock deck
+      deck = double("deck")
+      # create a mock hand using the high card hand
+      deck_cards = high_card
+
+      # expect the deck to receive the deal method with 5 cards and return the deck cards
+      deck.should_receive(:deal).with(5).and_return(deck_cards)
+      # call the deal_hand method on the hand object
+      hand.deal_hand(deck)
+      # expect the hand to have the same cards as the deck
+      hand.cards =~ deck_cards
     end
   end
 
