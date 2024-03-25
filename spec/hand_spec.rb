@@ -44,5 +44,19 @@ describe Hand do
       # expect the rank of the hand to be one; simeltaenously testing the high_card? method
       expect(hand.rank).to eq(1)
     end
+
+    it "returns 2 for a pair" do
+      # assigns the pair hand as the current hand
+      hand.cards = pair
+      # expect the rank of the hand to be two; simeltaenously testing the pair? method
+      expect(hand.rank).to eq(2)
+    end
+
+    it "returns 3 for two pair" do
+      # assigns the two pair hand as the current hand
+      hand.cards = two_pair
+      # expect the rank of the hand to be three; simeltaenously testing the two_pair? method
+      expect(hand.rank).to eq(3)
+    end
   end
 end
