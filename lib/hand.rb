@@ -26,6 +26,12 @@ class Hand
     card_frequency_calculator(3) && card_frequency_calculator(2)
   end
 
+  def flush?
+    # check if all cards have the same suit
+    suits = get_suit_values
+    suits.uniq.length == 1
+  end
+
   def straight?
     # sort the cards and iterate through each index
     sorted_cards = get_card_values.sort
