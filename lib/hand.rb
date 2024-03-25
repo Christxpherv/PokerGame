@@ -25,4 +25,12 @@ class Hand
     # iterate through the cards array and return the suit value of each card
     @cards.map { |card| card.get_suit }
   end
+
+  # create a hash of the frequency of each card
+  def get_frequency
+    # create an array of the integer values of the cards and create an empty hash
+    values = get_card_values
+    # create a hash with a default value of 0
+    card_freqs = Hash.new(0)
+  end
 end
