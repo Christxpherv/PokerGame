@@ -21,6 +21,11 @@ class Hand
     card_frequency_calculator(4)
   end
 
+  def full_house?
+    # check if the hand has three cards of one value and two cards of another value
+    card_frequency_calculator(3) && card_frequency_calculator(2)
+  end
+
   def three_of_a_kind?
     # check if the hand has three cards of the same value
     card_frequency_calculator(3)
