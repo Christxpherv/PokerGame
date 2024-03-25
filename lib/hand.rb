@@ -36,6 +36,17 @@ class Hand
     values = get_card_values
     # create a variable to store the number of doubles
     doubles = 0
+
+    # iterate through each index
+    values.each_index do |i|
+      # iterate through each index greater than the current index
+      (i + 1).upto(values.length - 1) do |j|
+        # increment the doubles variable if the values are the same
+        doubles += 1 if values[i] == values[j]
+      end
+    end
+    # return true if the number of doubles is 2
+    doubles == 2
   end
 
   def pair?
