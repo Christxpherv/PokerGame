@@ -22,4 +22,18 @@ RSpec.describe Card do
       expect(card.get_value).to eq("10")
     end
   end
+
+  # get the suit of the card as a string
+  describe "#get_suit" do
+    it "returns string of suit" do
+      expect(card.get_suit).to eq("♥")
+    end
+  end
+
+  # get the integer value of the card
+  describe "get_integer" do
+    it "gives an integer of value" do
+      expect(card.get_integer).to eq(10)
+    end
+  end
 end
