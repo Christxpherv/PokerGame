@@ -35,6 +35,12 @@ describe Hand do
   let(:jack_of_h) { double("jack_of_h", :get_integer => 11, :get_suit => :heart) }
   let(:ten_of_h) { double("ten_of_h", :get_integer => 10, :get_suit => :heart) }
 
+  # add a method that deals a hand to the player
+  describe "#deal_hand" do
+    it "takes 5 cards from deck" do
+      # add code here
+    end
+  end
 
   # create a rank method to test the strength of a hand
   describe "#rank" do
