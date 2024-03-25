@@ -32,5 +32,9 @@ class Hand
     values = get_card_values
     # create a hash with a default value of 0
     card_freqs = Hash.new(0)
+
+    # iterate through the values array and increment the frequency of each card
+    values.each {|card| card_freqs[card] += 1}
+    card_freqs
   end
 end
