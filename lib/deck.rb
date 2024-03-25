@@ -29,4 +29,9 @@ class Deck
   def deal(num)
     @cards.shift(num)
   end
+
+  # return the cards to the deck
+  def return(cards)
+    @cards.concat(cards)
+  end
 end
