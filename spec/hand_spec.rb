@@ -100,5 +100,11 @@ describe Hand do
       # expect the rank of the hand to be nine; simeltaenously testing the straight_flush? method
       expect(hand.rank).to eq(9)
     end
+    it "returns 10 for royal flush" do
+      # assigns the royal flush hand as the current hand
+      hand.cards = royal_flush
+      # expect the rank of the hand to be ten; simeltaenously testing the royal_flush? method
+      expect(hand.rank).to eq(10)
+    end
   end
 end
