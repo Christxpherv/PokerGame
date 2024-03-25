@@ -16,6 +16,16 @@ class Hand
 
   # ----------------- rank methods -----------------
 
+  def royal_flush?
+    # check if the hand is a straight flush and if the highest card is an ace and the lowest card is a ten
+    straight_flush? && get_card_values.max == 14 && get_card_values.min == 10
+  end
+
+  def straight_flush?
+    # check if the hand is a flush and a straight
+    flush? && straight?
+  end
+
   def four_of_a_kind?
     # check if the hand has four cards of the same value
     card_frequency_calculator(4)
