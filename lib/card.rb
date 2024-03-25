@@ -37,4 +37,19 @@ class Card
   def self.values
     STRINGS.keys
   end
+
+  # create a getter method to return the string value of the card inside the STRINGS hash
+  def get_value
+    STRINGS[value]
+  end
+
+  # create a getter method to return the string suit of the card inside the SYMBOLS hash
+  def get_suit
+    SYMBOLS[suit]
+  end
+
+  # create a getter method to return the integer value of the card inside the VALUES hash
+  def get_integer
+    VALUES[value]
+  end
 end
