@@ -19,6 +19,11 @@ class Card
   attr_reader :suit, :value
 
   def initialize(suit, value)
+    # raise an error if the suit or value is invalid
+    unless Card.suits.include?(suit) and Card.values.include?(value)
+      raise "invalid card, please verify the suit and value."
+    end
+
     @suit = suit
     @value = value
   end
