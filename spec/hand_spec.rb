@@ -27,5 +27,22 @@ describe Hand do
   let(:full_house) {[two_of_s, two_of_h, two_of_d, three_of_h, three_of_s]}
   let(:straight_flush) {[three_of_s, four_of_s, five_of_s, six_of_s, seven_of_s]}
 
+  # add more hands for royal flush
+  let(:royal_flush) { [ace_of_h, king_of_h, queen_of_h, jack_of_h, ten_of_h] }
+  let(:ace_of_h) { double("ace_of_h", :get_integer => 14, :get_suit => :heart) }
+  let(:king_of_h) { double("king_of_h", :get_integer => 13, :get_suit => :heart) }
+  let(:queen_of_h) { double("queen_of_h", :get_integer => 12, :get_suit => :heart) }
+  let(:jack_of_h) { double("jack_of_h", :get_integer => 11, :get_suit => :heart) }
+  let(:ten_of_h) { double("ten_of_h", :get_integer => 10, :get_suit => :heart) }
 
+
+  # create a rank method to test the strength of a hand
+  describe "#rank" do
+    it "returns 1 for a high card" do
+      # assigns the high card hand as the current hand
+      hand.cards = high_card
+      # expect the rank of the hand to be one; simeltaenously testing the high_card? method
+      expect(hand.rank).to eq(1)
+    end
+  end
 end
