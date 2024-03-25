@@ -138,5 +138,23 @@ describe Hand do
       # expect the hand to beat the hand2
       expect(hand.beats?(hand2)).to be_truthy
     end
+
+    it "returns true if same hand value but higher cards" do
+
+      # set the cards for the hand and hand2
+      hand2 = double("hand2", :cards => pair)
+      hand.cards = [three_of_h, three_of_s, four_of_s, five_of_s, six_of_s]
+
+      # if the cards have an equal rank, the hand with the higher frequency value should win
+      hand.should_receive(:rank).and_return(2)
+      hand2.should_receive(:rank).and_return(2)
+
+      # calculate the highest frequency value
+      hand.should_receive(:highest_frequency_value).and_return(3)
+      hand2.should_receive(:highest_frequency_value).and_return(2)
+
+      # expect the hand to beat the hand2
+      expect(hand.beats?(hand2)).to be_truthy
+    end
   end
 end
