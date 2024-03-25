@@ -24,4 +24,9 @@ class Deck
     # call the shuffle! method to shuffle the cards
     @cards.shuffle!
   end
+
+  # deal a specific number of cards from the deck
+  def deal(num)
+    @cards.shift(num)
+  end
 end
