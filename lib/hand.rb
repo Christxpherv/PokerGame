@@ -13,4 +13,16 @@ class Hand
   def deal_hand(deck)
     @cards = deck.deal(5)
   end
+
+  # create an array of the integer values of the cards
+  def get_card_values
+    # iterate through the cards array and return the integer value of each card
+    @cards.map { |card| card.get_integer }
+  end
+
+  # create an array of the suit values of the cards
+  def get_suit_values
+    # iterate through the cards array and return the suit value of each card
+    @cards.map { |card| card.get_suit }
+  end
 end
