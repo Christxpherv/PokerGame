@@ -72,5 +72,19 @@ describe Hand do
       # expect the rank of the hand to be five; simeltaenously testing the straight? method
       expect(hand.rank).to eq(5)
     end
+
+    it "returns 6 for a flush" do
+      # assigns the flush hand as the current hand
+      hand.cards = flush
+      # expect the rank of the hand to be six; simeltaenously testing the flush? method
+      expect(hand.rank).to eq(6)
+    end
+
+    it "returns 7 for a full house" do
+      # assigns the full house hand as the current hand
+      hand.cards = full_house
+      # expect the rank of the hand to be seven; simeltaenously testing the full_house? method
+      expect(hand.rank).to eq(7)
+    end
   end
 end
