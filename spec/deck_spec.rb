@@ -52,4 +52,19 @@ describe Deck do
       end
     end
   end
+  describe "#return" do
+    # take 3 cards from the deck
+    let(:cards) { deck.deal(3) }
+
+    it "adds the cards back to the deck" do
+      # set the original deck size
+      original_deck_size = deck.cards.size
+      # return the cards to the deck
+      deck.return(cards)
+      # expect the size to equal the original size
+      expect(deck.cards.size).to eq(original_deck_size)
+      # expect the cards to be in the deck
+      expect(deck.cards).to include(*cards)
+    end
+  end
 end
