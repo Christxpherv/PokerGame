@@ -27,4 +27,29 @@ describe Deck do
       expect(deck.cards).not_to eq(expected_ordered_deck)
     end
   end
+  describe "#deal" do
+    context "when dealing a single card" do
+      it "removes the top card from the deck" do
+        original_deck_size = deck.cards.size
+        dealt_card = deck.deal(1).first
+
+        # make sure the card is taken out of the deck
+        expect(deck.cards.size).to eq(original_deck_size - 1)
+        # checks that the dealt card is not in the deck
+        expect(deck.cards).not_to include(dealt_card)
+      end
+    end
+
+    context "when dealing multiple cards" do
+      it "removes the specified number of cards from the top of the deck" do
+        original_deck_size = deck.cards.size
+        dealt_cards = deck.deal(5)
+
+        # make sure the cards are taken out of the deck
+        expect(deck.cards.size).to eq(original_deck_size - 5)
+        # checks that the dealt cards are not in the deck
+        expect(deck.cards & dealt_cards).to be_empty
+      end
+    end
+  end
 end
