@@ -123,4 +123,12 @@ describe Hand do
       expect(hand.rank).to eq(10)
     end
   end
+
+  # now that we have the rank of the cards, we can compare the strength of the hands
+  describe "#beats?" do
+    it "returns true if hand value stronger than opposing hand" do
+      # create a mock hand
+      hand2 = double("hand2")
+    end
+  end
 end
