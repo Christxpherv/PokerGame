@@ -129,6 +129,14 @@ describe Hand do
     it "returns true if hand value stronger than opposing hand" do
       # create a mock hand
       hand2 = double("hand2")
+
+      # expect the rank of the hand to be 4
+      allow(hand).to receive(:rank).and_return(4)
+      # expect the rank of the hand2 to be 3
+      allow(hand2).to receive(:rank).and_return(3)
+
+      # expect the hand to beat the hand2
+      expect(hand.beats?(hand2)).to be_truthy
     end
   end
 end
