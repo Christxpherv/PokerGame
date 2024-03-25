@@ -58,5 +58,19 @@ describe Hand do
       # expect the rank of the hand to be three; simeltaenously testing the two_pair? method
       expect(hand.rank).to eq(3)
     end
+
+    it "returns 4 for three of a kind" do
+      # assigns the three of a kind hand as the current hand
+      hand.cards = three_of_a_kind
+      # expect the rank of the hand to be four; simeltaenously testing the three_of_a_kind? method
+      expect(hand.rank).to eq(4)
+    end
+
+    it "returns 5 for a straight" do
+      # assigns the straight hand as the current hand
+      hand.cards = straight
+      # expect the rank of the hand to be five; simeltaenously testing the straight? method
+      expect(hand.rank).to eq(5)
+    end
   end
 end
