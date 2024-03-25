@@ -89,6 +89,19 @@ class Hand
     card_frequency_calculator(1)
    end
 
+  # determine the rank of each hand
+  def rank
+    return 10 if royal_flush?
+    return 9 if straight_flush?
+    return 8 if four_of_a_kind?
+    return 7 if full_house?
+    return 6 if flush?
+    return 5 if straight?
+    return 4 if three_of_a_kind?
+    return 3 if two_pair?
+    return 2 if pair?
+    return 1 if high_card?
+  end
 
   # ----------------- supporting methods -----------------
 
