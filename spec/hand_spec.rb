@@ -167,6 +167,16 @@ describe Hand do
       # create old cards and new cards
       old_cards = [hand.cards[2], hand.cards[3], hand.cards[4]]
       new_cards = [two_of_d, two_of_s, five_of_s]
+      # expect the deck to receive the take method with 3 cards and return the new cards
+      allow(deck).to receive(:take).with(3).and_return(new_cards)
+      # call the replace_cards method on the hand object
+      hand.replace_cards(old_cards, new_cards)
+
+      # new hand should be the first two cards in the hand and the new cards
+      new_hand = [hand.cards[0], hand.cards[1]].concat(new_cards)
+
+      # expect the hand to have the new hand
+      expect(hand.cards).to eq(new_hand)
     end
   end
 end
