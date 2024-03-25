@@ -28,4 +28,13 @@ class Card
     @value = value
   end
 
+  # return an array of all the suits to be used in the init method to check if the suit is valid
+  def self.suits
+    SYMBOLS.keys
+  end
+
+  # return an array of all the values to be used in the init method to check if the value is valid
+  def self.values
+    STRINGS.keys
+  end
 end
