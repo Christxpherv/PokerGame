@@ -16,6 +16,11 @@ class Hand
 
   # ----------------- rank methods -----------------
 
+  def pair?
+  # check if the hand has one pair
+    card_frequency_calculator(2)
+  end
+
   def high_card?
     # check if the hand has no other combinations
     card_frequency_calculator(1)
