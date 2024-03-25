@@ -21,5 +21,7 @@ class Deck
         @cards << Card.new(suit, value)
       end
     end
+    # call the shuffle! method to shuffle the cards
+    @cards.shuffle!
   end
 end
