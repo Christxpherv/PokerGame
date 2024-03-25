@@ -31,6 +31,13 @@ class Hand
     card_frequency_calculator(3)
   end
 
+  def two_pair?
+    # check if the hand has two pairs
+    values = get_card_values
+    # create a variable to store the number of doubles
+    doubles = 0
+  end
+
   def pair?
   # check if the hand has one pair
     card_frequency_calculator(2)
