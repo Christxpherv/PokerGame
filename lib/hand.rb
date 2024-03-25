@@ -103,6 +103,13 @@ class Hand
     return 1 if high_card?
   end
 
+  # ----------------- comparison method ------------------
+
+  # compare the hand to another hand
+  def beats?(opponent)
+    # add code to compare the rank of the hands
+  end
+
   # ----------------- supporting methods -----------------
 
   # create an array of the integer values of the cards
