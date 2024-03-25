@@ -46,4 +46,13 @@ class Hand
     # sort the hash by the frequency of each card and return the highest frequency card value
     card_freqs.sort_by { |v| card_freqs[card] }.last.get_integer
   end
+
+  # determine if the hand contains a specific number of the same cards
+  def card_frequency_calculator(num)
+    # create a hash of the frequency of each card
+    card_freqs = get_frequency
+
+    # return true if the hand contains the specified number of the same cards
+    card_freqs.values.any? {|num_of_same_cards| num_of_same_cards == num}
+  end
 end
