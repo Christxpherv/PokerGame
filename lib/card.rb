@@ -52,4 +52,10 @@ class Card
   def get_integer
     VALUES[value]
   end
+
+  # return the string representation of the card
+  def to_s
+    # use value and suit as keys to get the string representation of the card
+    "#{STRINGS[value]} of #{SYMBOLS[suit]}"
+  end
 end
