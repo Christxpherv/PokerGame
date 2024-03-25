@@ -26,6 +26,20 @@ class Hand
     card_frequency_calculator(3) && card_frequency_calculator(2)
   end
 
+  def straight?
+    # sort the cards and iterate through each index
+    sorted_cards = get_card_values.sort
+
+    sorted_cards.each_index do |i|
+      # if we reach the last four cards, break the loop
+      next if i > 3
+      # return false if the next card is not one greater than the current card
+      return false if (sorted_cards[i] + 1) != sorted_cards[i + 1]
+    end
+    # if no breaks were found in the sequence, return true indicating a straight
+    true
+  end
+
   def three_of_a_kind?
     # check if the hand has three cards of the same value
     card_frequency_calculator(3)
