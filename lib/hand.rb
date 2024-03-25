@@ -14,6 +14,16 @@ class Hand
     @cards = deck.deal(5)
   end
 
+  # ----------------- rank methods -----------------
+
+  def high_card?
+    # check if the hand has no other combinations
+    card_frequency_calculator(1)
+   end
+
+
+  # ----------------- supporting methods -----------------
+
   # create an array of the integer values of the cards
   def get_card_values
     # iterate through the cards array and return the integer value of each card
