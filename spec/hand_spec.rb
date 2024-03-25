@@ -86,5 +86,19 @@ describe Hand do
       # expect the rank of the hand to be seven; simeltaenously testing the full_house? method
       expect(hand.rank).to eq(7)
     end
+
+    it "returns 8 for four of a kind" do
+      # assigns the four of a kind hand as the current hand
+      hand.cards = four_of_a_kind
+      # expect the rank of the hand to be eight; simeltaenously testing the four_of_a_kind? method
+      expect(hand.rank).to eq(8)
+    end
+
+    it "returns 9 for straight flush" do
+      # assigns the straight flush hand as the current hand
+      hand.cards = straight_flush
+      # expect the rank of the hand to be nine; simeltaenously testing the straight_flush? method
+      expect(hand.rank).to eq(9)
+    end
   end
 end
