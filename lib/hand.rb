@@ -16,6 +16,11 @@ class Hand
 
   # ----------------- rank methods -----------------
 
+  def four_of_a_kind?
+    # check if the hand has four cards of the same value
+    card_frequency_calculator(4)
+  end
+
   def three_of_a_kind?
     # check if the hand has three cards of the same value
     card_frequency_calculator(3)
