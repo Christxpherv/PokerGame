@@ -42,4 +42,22 @@ class Game
     # iterate through each player in the game and check if their bakroll is zero
     players.each { |player| player.bankroll == 0 ? player.fold : player.hand.deal_hand(deck) } # if player has no money, fold, otherwise deal hand
   end
+
+  def take_bets
+    # set high_bet to zero
+    high_bet = 0
+    # iterate through each player in the game
+    players.each_with_index do |player, i|
+      # if the player has folded, skip to the next player
+      next if player.folded?
+      # print the high bet
+      puts "High bet: $#{high_bet}"
+      # print the player number
+      puts "Player #{i + 1}:"
+      # print the players hand
+      puts player.hand.cards
+      # call the place_bet method on the player and store the response in player_response
+      player_response = player.place_bet
+    end
+  end
 end
