@@ -20,4 +20,22 @@ describe Game do
       expect(game.players.all? {|player| player.bankroll == 100} ).to be true
     end
   end
+
+  describe "#game_over?" do
+    it "should return false when players have money" do
+      game.add_players(5, 100)
+      # if players have money, the game should not be over
+      expect(game).to_not be_game_over
+    end
+
+    it "should return true when one or less players have money" do
+      # create a game with 3 players, 2 of which have no money
+      game.players = [ double("player1", :bankroll => 100),
+                       double("player2", :bankroll =>   0),
+                       double("player3", :bankroll =>   0) ]
+
+      # the game should be over
+      expect(game).to be_game_over
+    end
+  end
 end
