@@ -115,7 +115,7 @@ class Game
       # print the players hand
       puts player.hand.cards
       # call the discard method on the player
-      new_cards = deck.take(player.discard.count)
+      new_cards = deck.deal(player.discard.count)
       # call the receive_new_cards method on the player with the new cards
       player.receive_new_cards(new_cards)
     end
