@@ -96,7 +96,14 @@ class Game
   end
 
   def show_hands
-    # add code later
+    puts "Players Hands"
+    # iterate through each player in the game
+    players.each_with_index do |player, i|
+      # if the player has folded, skip to the next player
+      next if player.folded?
+      # if the player has not folded, print the players hand and the rank of the hand
+      puts "#{player.hand} worth #{player.hand.rank} points"
+    end
   end
 
   def trade_cards
