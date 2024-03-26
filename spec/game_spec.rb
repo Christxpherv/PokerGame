@@ -12,5 +12,12 @@ describe Game do
       # expect the number of players to be 2
       expect(game.players.count).to eq(2)
     end
+
+    it "should give each player the specified bankroll" do
+      game.add_players(2, 100)
+
+      # expect all players to have a bankroll of 100
+      expect(game.players.all? {|player| player.bankroll == 100} ).to be true
+    end
   end
 end
