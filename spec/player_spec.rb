@@ -42,5 +42,12 @@ describe Player do
       # expect the player's hand to be empty
       expect(player.hand.cards).to eq([])
     end
+
+    it "returns the hands cards" do
+      # store the player's current hand in a variable
+      players_hand = player.hand
+      # expect that calling return_cards method returns the cards from the player's hand
+      expect(player.return_cards).to eq(players_hand.cards)
+    end
   end
 end
