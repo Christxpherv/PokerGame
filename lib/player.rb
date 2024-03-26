@@ -56,4 +56,11 @@ class Player
     # return the raise amount
     raise_amount
   end
+
+  def see(current_amount)
+    # subtract the current amount from the player's bankroll
+    self.bankroll -= current_amount
+    # add the current amount to the pot
+    self.pot += current_amount
+  end
 end
