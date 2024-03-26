@@ -65,16 +65,17 @@ class Player
   end
 
   def discard
-    # ask the user which cards they would like to discard
     puts "What would you like to discard?"
-    # get user input, split it by commas, and convert each part to an integer
+    # get the user's choice and convert it to an array of integers
     user_choice = gets.chomp.split(",").map(&:to_i)
-    # sort the user's choices in descending order to avoid index shift when deleting and delete the cards
-    user_choice.sort.reverse.each { |choice| hand.cards.delete_at(choice - 1) }
+    # iterate through the user's choice and remove the cards from the player's hand
+    discarded_cards = user_choice.sort.reverse.map { |choice| hand.cards.delete_at(choice - 1) }
+    # return the discarded cards
+    discarded_cards
   end
 
   def trade_cards(old_cards, new_cards)
-    # call the replace_cards method on the player's hand
+    # remove the old cards from the player's hand and add the new cards
     hand.replace_cards(old_cards, new_cards)
   end
 
