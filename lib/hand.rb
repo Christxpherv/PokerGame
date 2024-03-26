@@ -160,4 +160,11 @@ class Hand
     # return true if the hand contains the specified number of the same cards
     card_freqs.values.any? {|num_of_same_cards| num_of_same_cards == num}
   end
+
+  def replace_cards(old_cards, new_cards)
+     # remove all instances of old cards from the hand
+    @cards.delete_if { |card| old_cards.include?(card) }
+    # concatenate the new cards to the hand
+    @cards.concat(new_cards)
+  end
 end
