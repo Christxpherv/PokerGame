@@ -21,7 +21,7 @@ class Game
   # method that plays a round of poker
   def play_round
     # call the shuffle method on the deck
-    deck.shuffle
+    deck.shuffle!
     # unfold all players
     unfold_players
     # deal in the players
@@ -36,5 +36,10 @@ class Game
     take_bets
     # end round
     end_round
+  end
+
+  def deal_in
+    # iterate through each player in the game and check if their bakroll is zero
+    players.each { |player| player.bankroll == 0 ? player.fold : player.hand.deal_hand(deck) } # if player has no money, fold, otherwise deal hand
   end
 end
