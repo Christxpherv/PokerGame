@@ -67,4 +67,24 @@ describe Game do
       expect( game.players.last.hand.cards ).to eq([])
     end
   end
+
+  describe "#add_to_pot" do
+    it "increases pot by amount given" do
+      # call the add_to_pot method with an argument of 100
+      game.add_to_pot(100)
+      # expect the pot to be 100
+      expect(game.pot).to eq(100)
+    end
+
+    it "should change each players pot reference amount" do
+      game.add_to_pot(100)
+      # expect all players to have a pot of 100
+      expect(game.players.all? {|player| player.pot == 100}).to be true
+    end
+
+    it "should return the amount added to the pot" do
+      # expect the return value of add_to_pot to be 100
+      expect(game.add_to_pot(100)).to eq(100)
+    end
+  end
 end
