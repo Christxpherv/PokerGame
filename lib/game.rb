@@ -120,4 +120,20 @@ class Game
       player.receive_new_cards(new_cards)
     end
   end
+
+  def unfold_players
+    # iterate through each player in the game and call the unfold method
+    players.each(&:unfold)
+  end
+
+  def add_players(num, bankroll)
+    # iterate num times and add a new player to the players array with bankroll and pot
+    num.times { players << Player.new(bankroll, self.pot) }
+  end
+
+  def add_to_pot(amt)
+    # add the amount to the pot and return the amount
+    self.pot += amt
+    amt
+  end
 end
