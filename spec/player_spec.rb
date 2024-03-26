@@ -77,4 +77,27 @@ describe Player do
       expect(player.raise).to eq(50)
     end
   end
+
+  describe "#discard" do
+    it "prompts the user for cards to discard and removes them from the hand" do
+      # create a double for the hand
+      hand = double("hand")
+      # stub the cards method to return an array of cards
+      allow(hand).to receive(:cards).and_return([1, 2, 3, 4, 5])
+      # assign the hand to the player
+      player.hand = hand
+
+      # stub the gets method to simulate user input
+      allow(player).to receive(:gets).and_return("1,3,5\\n")
+
+      # call the discard method
+      player.discard
+
+      # expect the cards method to have been called on the hand
+      expect(hand).to have_received(:cards).exactly(3).times
+
+      # expect the cards in the hand to be [2, 4] after discarding
+      expect(player.hand.cards).to eq([2, 4])
+    end
+  end
 end
