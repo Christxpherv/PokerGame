@@ -25,6 +25,10 @@ class Deck
     @cards.shuffle!
   end
 
+  def shuffle
+    @cards.shuffle!
+  end
+
   # deal a specific number of cards from the deck
   def deal(num)
     @cards.shift(num)

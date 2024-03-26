@@ -21,7 +21,7 @@ class Game
   # method that plays a round of poker
   def play_round
     # call the shuffle method on the deck
-    deck.shuffle!
+    deck.shuffle
     # unfold all players
     unfold_players
     # deal in the players
