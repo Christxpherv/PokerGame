@@ -19,6 +19,13 @@ class Player
     self.hand = hand
   end
 
+  def place_bet
+    # ask the user if they would like to fold, see, or raise
+    puts "Would you like to (f)old, (s)ee, or (r)aise?"
+    # get the user's choice
+    user_choice = gets.chomp.downcase[0]
+  end
+
   # fold method to set the player to folded
   def fold
     # set over to true
@@ -37,10 +44,16 @@ class Player
     @over
   end
 
-  def place_bet
-    # ask the user if they would like to fold, see, or raise
-    puts "Would you like to (f)old, (s)ee, or (r)aise?"
-    # get the user's choice
-    user_choice = gets.chomp.downcase[0]
+  def raise
+    # ask the user how much they would like to raise
+    puts "How much would you like to raise?"
+    # get the user's choice and convert it to an integer
+    raise_amount = Integer(gets.chomp)
+    # subtract the raise amount from the player's bankroll
+    self.bankroll -= raise_amount
+    # add the raise amount to the pot
+    self.pot += raise_amount
+    # return the raise amount
+    raise_amount
   end
 end
