@@ -59,4 +59,22 @@ describe Player do
       expect(player.bankroll).to eq(500)
     end
   end
+
+  describe "#place_bet" do
+    it "prompts user for valid bet choice" do
+      # stubbing the gets method to simulate user input.
+      allow(player).to receive(:gets).and_return("f\n")
+      # method should output a prompt asking for bet choice.
+      expect { player.place_bet }.to output(/Would you like to \(f\)old, \(s\)ee, or \(r\)aise?/).to_stdout
+    end
+  end
+
+  describe "#raise" do
+    it "allows player to raise bet" do
+      # stubbing the gets method to simulate user input.
+      allow(player).to receive(:gets).and_return("50\n")
+      # method should return the amount by which the player wants to raise.
+      expect(player.raise).to eq(50)
+    end
+  end
 end
