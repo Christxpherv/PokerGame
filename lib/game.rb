@@ -58,6 +58,21 @@ class Game
       puts player.hand.cards
       # call the place_bet method on the player and store the response in player_response
       player_response = player.place_bet
+      case player_response
+      # if the player response is "f", fold the player
+      when "f"
+        player.fold
+      # if the player response is "s", call the see method on the player
+      when "s"
+        player.see(high_bet)
+      # if the player response is "r", call the raise method on the player
+      when "r"
+        player_response = player.raiseBet
+        # set high_bet to the player_response
+        high_bet = player_response
+      end
+      # end the round and return if the game is over
+      return if game_over?
     end
   end
 end
