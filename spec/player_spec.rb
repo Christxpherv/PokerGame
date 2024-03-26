@@ -34,4 +34,13 @@ describe Player do
      expect(player.hand).to eq(hand)
     end
   end
+
+  describe "return_cards" do
+    it "sets players cards back to new hand" do
+      # call the return_cards method on the player
+      player.return_cards
+      # expect the player's hand to be empty
+      expect(player.hand.cards).to eq([])
+    end
+  end
 end
