@@ -78,6 +78,15 @@ describe Player do
     end
   end
 
+  describe "#see" do
+    it "allows player to see the current bet" do
+      current_bet_amount = 50
+      player.see(current_bet_amount)
+      expect(player.bankroll).to eq(350)
+      expect(player.pot).to eq(150)
+    end
+  end
+
   describe "#discard" do
     it "prompts the user for cards to discard and removes them from the hand" do
       # create a double for the hand
