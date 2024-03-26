@@ -38,4 +38,11 @@ describe Game do
       expect(game).to be_game_over
     end
   end
+
+  describe "#deal_in" do
+    # before each test in this block, add 5 players with a bankroll of 100 each
+    before(:each) do
+      game.add_players(5, 100)
+    end
+  end
 end
