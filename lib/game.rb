@@ -112,12 +112,13 @@ class Game
       # if the player has folded, skip to the next player
       next if player.folded?
       puts "Player #{i + 1}:"
-      # print the players hand
       puts player.hand.cards
-      # call the discard method on the player
-      new_cards = deck.take(player.discard.count)
-      # call the receive_new_cards method on the player with the new cards
-      player.receive_new_cards(new_cards)
+      # call the discard method on the player and store the discarded cards in discarded_cards
+      discarded_cards = player.discard
+      # call the deal method on the deck with the number of discarded cards and store the new cards in new_cards
+      new_cards = deck.deal(discarded_cards.count)
+      # call the replace_cards method on the player's hand with the discarded cards and new cards as arguments
+      player.hand.replace_cards(discarded_cards, new_cards)
     end
   end
 
