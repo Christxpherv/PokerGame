@@ -12,4 +12,15 @@ describe Player do
       expect(player).to be_folded
     end
   end
+
+  describe "unfold" do
+    it "should unfold a folded player" do
+      # fold the player first
+      player.fold
+      # call the unfold method on the player
+      player.unfold
+      # predicate matcher expects boolean attribute to be false
+      expect(player).to_not be_folded
+    end
+  end
 end
