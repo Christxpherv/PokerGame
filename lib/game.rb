@@ -10,4 +10,24 @@ class Game
     @players = []
     @pot = 0
   end
+
+  # method that plays a round of poker
+  def play_round
+    # call the shuffle method on the deck
+    deck.shuffle
+    # unfold all players
+    unfold_players
+    # deal in the players
+    deal_in
+    # take bets
+    take_bets
+    # add option to end round or return if game is over (going to be added later)
+    end_round && return if game_over?
+    # trade cards
+    trade_cards
+    # take bets
+    take_bets
+    # end round
+    end_round
+  end
 end
