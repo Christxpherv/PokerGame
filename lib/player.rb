@@ -63,4 +63,13 @@ class Player
     # add the current amount to the pot
     self.pot += current_amount
   end
+
+  def discard
+    # ask the user which cards they would like to discard
+    puts "What would you like to discard?"
+    # get user input, split it by commas, and convert each part to an integer
+    user_choice = gets.chomp.split(",").map(&:to_i)
+    # sort the user's choices in descending order to avoid index shift when deleting and delete the cards
+    user_choice.sort.reverse.each { |choice| hand.cards.delete_at(choice - 1) }
+  end
 end
