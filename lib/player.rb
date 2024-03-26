@@ -72,4 +72,23 @@ class Player
     # sort the user's choices in descending order to avoid index shift when deleting and delete the cards
     user_choice.sort.reverse.each { |choice| hand.cards.delete_at(choice - 1) }
   end
+
+  def trade_cards(old_cards, new_cards)
+    # call the replace_cards method on the player's hand
+    hand.replace_cards(old_cards, new_cards)
+  end
+
+  def return_cards
+    # store the cards currently held in the player's hand
+    cards = hand.cards
+    # clear the player's hand by assigning an empty array to it
+    self.hand.cards = []
+     # return the cards that were previously held in the player's hand
+    cards
+  end
+
+  def receive_winnings
+    # add the pot to the player's bankroll
+    self.bankroll += pot
+  end
 end
