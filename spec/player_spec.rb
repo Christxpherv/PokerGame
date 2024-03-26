@@ -50,4 +50,13 @@ describe Player do
       expect(player.return_cards).to eq(players_hand.cards)
     end
   end
+
+  describe "receive_winnings" do
+    it "adds amount won to players bankroll" do
+      # call the receive_winnings method on the player
+      player.receive_winnings
+      # expect the player's bankroll to be 500
+      expect(player.bankroll).to eq(500)
+    end
+  end
 end
