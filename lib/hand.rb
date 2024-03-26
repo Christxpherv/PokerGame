@@ -107,7 +107,14 @@ class Hand
 
   # compare the hand to another hand
   def beats?(opponent)
-    # add code to compare the rank of the hands
+    # check that trhe ranks are different
+    unless rank == opponent.rank
+      # compare the ranks of the hands
+      rank > opponent.rank
+    else
+      # if ranks are equal, compare the highest card values
+      highest_frequency_value > opponent.highest_frequency_value
+    end
   end
 
   # ----------------- supporting methods -----------------
