@@ -75,4 +75,19 @@ class Game
       return if game_over?
     end
   end
+
+  def trade_cards
+    # iterate through each player in the game
+    players.each_with_index do |player, i|
+      # if the player has folded, skip to the next player
+      next if player.folded?
+      puts "Player #{i + 1}:"
+      # print the players hand
+      puts player.hand.cards
+      # call the discard method on the player
+      new_cards = deck.take(player.discard.count)
+      # call the receive_new_cards method on the player with the new cards
+      player.receive_new_cards(new_cards)
+    end
+  end
 end
