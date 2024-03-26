@@ -76,6 +76,29 @@ class Game
     end
   end
 
+  def winner
+    # if the game is not over, raise an error
+    raise "round not over yet" unless game_over?
+    # sort the players by the rank of their hand and return the last player
+    players.sort_by {|player| player.hand.rank }.last
+  end
+
+  def end_round
+    # call the show_hands method
+    show_hands
+    puts "Winner!"
+    # display the winning hand and the amount won
+    puts "#{winner.hand} wins $#{pot}!"
+    # call the receive_winnings method on the winner with the pot as the argument
+    winner.receive_winnings(pot)
+    # reset the pot to zero
+    self.pot = 0
+  end
+
+  def show_hands
+    # add code later
+  end
+
   def trade_cards
     # iterate through each player in the game
     players.each_with_index do |player, i|
