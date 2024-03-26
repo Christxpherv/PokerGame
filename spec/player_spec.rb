@@ -23,4 +23,15 @@ describe Player do
       expect(player).to_not be_folded
     end
   end
+
+  describe "deal_in" do
+    it "deals a player a hand of cards" do
+
+     hand = double("hand")
+      # call the deal_in method on the player using the hand double
+     player.deal_in(hand)
+    # expect that the player's hand is now set to the provided hand double
+     expect(player.hand).to eq(hand)
+    end
+  end
 end
