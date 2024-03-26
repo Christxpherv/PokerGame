@@ -136,4 +136,13 @@ class Game
     self.pot += amt
     amt
   end
+
+  def game_over?
+    # set elgible_players to zero
+    elgible_players = 0
+    # iterate through each player in the game and increment elgible_players if the player has money
+    players.each { |player| elgible_players += 1 unless player.bankroll == 0}
+    # return true if elgible_players is less than 2
+    elgible_players < 2
+  end
 end
