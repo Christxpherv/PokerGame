@@ -44,5 +44,27 @@ describe Game do
     before(:each) do
       game.add_players(5, 100)
     end
+
+    it "should give each player a hand of cards" do
+      # deal in the players
+      game.deal_in
+      # expect all players to have a hand
+      expect( game.players.all? { |player| player.hand } ).to be true
+    end
+
+    it "should give each player 5 cards" do
+      game.deal_in
+      # expect all players to have 5 cards in their hand
+      expect( game.players.all? { |player| player.hand.cards.count == 5 } ).to be true
+    end
+
+    it "should not give a hand to players with no money" do
+      # add a player with no money
+      game.add_players(1, 0)
+      # deal in the player
+      game.deal_in
+      # expect the player to have no hand
+      expect( game.players.last.hand.cards ).to eq([])
+    end
   end
 end
