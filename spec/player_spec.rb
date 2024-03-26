@@ -69,12 +69,12 @@ describe Player do
     end
   end
 
-  describe "#raise" do
+  describe "#raiseBet" do
     it "allows player to raise bet" do
       # stubbing the gets method to simulate user input.
       allow(player).to receive(:gets).and_return("50\n")
       # method should return the amount by which the player wants to raise.
-      expect(player.raise).to eq(50)
+      expect(player.raiseBet).to eq(50)
     end
   end
 

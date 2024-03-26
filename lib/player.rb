@@ -44,7 +44,7 @@ class Player
     @over
   end
 
-  def raise
+  def raiseBet
     # ask the user how much they would like to raise
     puts "How much would you like to raise?"
     # get the user's choice and convert it to an integer
