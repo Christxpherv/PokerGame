@@ -1,3 +1,4 @@
+# import the deck file
 require_relative 'deck'
 
 class Hand
