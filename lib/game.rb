@@ -11,6 +11,13 @@ class Game
     @pot = 0
   end
 
+  # create a play method to start and play the game until it is over
+  def play
+    # play rounds until the game is over
+    play_round until game_over?
+    game_over
+  end
+
   # method that plays a round of poker
   def play_round
     # call the shuffle method on the deck
