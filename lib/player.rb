@@ -18,4 +18,22 @@ class Player
     # set the player's hand to the provided hand
     self.hand = hand
   end
+
+  # fold method to set the player to folded
+  def fold
+    # set over to true
+    @over = true
+  end
+
+  # unfold method to set the player to not folded
+  def unfold
+    # set over to false
+    @over = false
+  end
+
+  # folded? method to check if the player is folded
+  def folded?
+    # return the value of over
+    @over
+  end
 end
