@@ -36,4 +36,11 @@ class Player
     # return the value of over
     @over
   end
+
+  def place_bet
+    # ask the user if they would like to fold, see, or raise
+    puts "Would you like to (f)old, (s)ee, or (r)aise?"
+    # get the user's choice
+    user_choice = gets.chomp.downcase[0]
+  end
 end
