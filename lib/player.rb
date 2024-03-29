@@ -20,10 +20,21 @@ class Player
   end
 
   def place_bet
-    # ask the user if they would like to fold, see, or raise
-    puts "Would you like to (f)old, (s)ee, or (r)aise?"
-    # get the user's choice
-    user_choice = gets.chomp.downcase[0]
+    # create an array of valid choices
+    valid_choices = ['f', 's', 'r']
+    # loop until the user enters a valid choice
+    loop do
+      puts "Would you like to (f)old, (s)ee, or (r)aise?"
+      # get the user's choice and convert it to lowercase
+      user_choice = gets.chomp.downcase
+      # check if the user's choice is valid
+      if valid_choices.include?(user_choice)
+        return user_choice
+      # if the user's choice is not valid, output an error message
+      else
+        puts "Invalid choice. Please enter 'f', 's', or 'r'."
+      end
+    end
   end
 
   # fold method to set the player to folded
@@ -45,15 +56,25 @@ class Player
   end
 
   def raiseBet
-    # ask the user how much they would like to raise
-    puts "How much would you like to raise?"
-    # get the user's choice and convert it to an integer
-    raise_amount = Integer(gets.chomp)
-    # subtract the raise amount from the player's bankroll
-    self.bankroll -= raise_amount
-    # add the raise amount to the pot
-    self.pot += raise_amount
-    # return the raise amount
+    valid_raise = false
+    while !valid_raise
+      # ask the user how much they would like to raise
+      puts "How much would you like to raise?"
+       # get the user's choice and convert it to an integer
+      raise_amount = Integer(gets.chomp)
+      # check if the raise amount is greater than the player's bankroll
+      if raise_amount > bankroll
+        # if the raise amount is greater than the player's bankroll, output an error message
+        puts "You don't have enough money to raise that amount. Your bankroll is $#{bankroll}."
+      else
+        # if the raise amount is valid, set valid_raise to true
+        valid_raise = true
+        # subtract the raise amount from the player's bankroll
+        self.bankroll -= raise_amount
+        # add the raise amount to the pot
+        self.pot += raise_amount
+      end
+    end
     raise_amount
   end
 
@@ -88,7 +109,8 @@ class Player
     cards
   end
 
-  def receive_winnings
+  # add argument to receive_winnings method
+  def receive_winnings(pot)
     # add the pot to the player's bankroll
     self.bankroll += pot
   end
