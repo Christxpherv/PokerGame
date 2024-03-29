@@ -53,10 +53,10 @@ describe Player do
 
   describe "receive_winnings" do
     it "adds amount won to players bankroll" do
-      # call the receive_winnings method on the player
-      player.receive_winnings
-      # expect the player's bankroll to be 500
-      expect(player.bankroll).to eq(500)
+      # call the receive_winnings method on the player with an amount of 500
+      player.receive_winnings(500)
+      # expect the player's bankroll to be 900 since the player started with 400
+      expect(player.bankroll).to eq(900)
     end
   end
 
