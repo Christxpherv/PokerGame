@@ -144,13 +144,13 @@ class Hand
     card_freqs
   end
 
-  # return the highest frequency card value
   def highest_frequency_value
     # create a hash of the frequency of each card
     card_freqs = get_frequency
-
-    # sort the hash by the frequency of each card and return the highest frequency card value
-    card_freqs.sort_by { |v| card_freqs[card] }.last.get_integer
+    # find the most frequent value from the card frequency hash
+    most_frequent_value = card_freqs.max_by { |k, v| v }.first
+    # retrieve the corresponding card value from the Card module's VALUES constant
+    Card::VALUES[most_frequent_value]
   end
 
   # determine if the hand contains a specific number of the same cards
@@ -167,5 +167,12 @@ class Hand
     @cards.delete_if { |card| old_cards.include?(card) }
     # concatenate the new cards to the hand
     @cards.concat(new_cards)
+  end
+
+  def to_s
+    # create an array of the string values of the cards
+    card_strings = @cards.map(&:to_s)
+    # return the string representation of the hand
+    "Hand: #{card_strings.join(', ')}"
   end
 end
